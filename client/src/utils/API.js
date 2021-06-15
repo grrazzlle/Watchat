@@ -1,6 +1,6 @@
 import axios from "axios";
-const BASEURL = "http://www.omdbapi.com/?s=";
-const IDURL = "http://www.omdbapi.com/?i="
+const BASEURL = "https://www.omdbapi.com/?s=";
+const IDURL = "https://www.omdbapi.com/?i="
 const APIKEY = "f3927da0";
 
 const API = {
