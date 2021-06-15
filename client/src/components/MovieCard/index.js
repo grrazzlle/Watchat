@@ -1,4 +1,5 @@
 import "./style.css"
+import defaultImg from "../../assets/images/download.png"
 import { Card, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
@@ -20,10 +21,10 @@ function MovieCard(props) {
   }
 
   return (
-    <Card id={props.id} onClick={onClick} style={{ backgroundColor: "transparent", border: "none", cursor:"pointer"}}>
-      <Card.Img variant="top" className="grow"src={props.poster}  style={{boxShadow: "20px 20px 10px rgba(0,0,0,0.75)"}} />
+    <Card className="cardAlignCenter" id={props.id} onClick={onClick} style={{backgroundColor: "transparent", border: "none", cursor:"pointer"}}>
+      <Card.Img variant="top" className="grow" src={props.poster === "N/A" ? defaultImg : props.poster} style={{backgroundColor: "black", boxShadow: "20px 20px 10px rgba(0,0,0,0.75)"}} />
       <Card.Text style={{ color: "white", paddingTop: "25px", justifyContent:"center" }}>
-        <Row style={{justifyContent:"center"}}>
+        <Row style={{justifyContent:"center", paddingLeft: "15px", paddingRight: "15px"}}>
         <span>{props.title}</span>
         </Row>
         

@@ -147,7 +147,7 @@ function Home(props) {
                 <Row>
                     {results.map(result => {
                         return (
-                            <Col style={{ marginBottom: "25px" }} md="3" key={result.id}>
+                            <Col className="cardSize d-flex" style={{ marginBottom: "25px" }} md="3" key={result.id}>
                                 <MovieCard
                                     onMovieClick={props.onMovieClick}
                                     id={result.id}

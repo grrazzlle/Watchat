@@ -10,8 +10,8 @@ import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MovieFilterSharpIcon from '@material-ui/icons/MovieFilterSharp';
-import {useDispatch} from "react-redux";
-import {setSearch} from "../../utils/AppSlice";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../../utils/AppSlice";
 function Navbar(props) {
   const [query, setQuery] = useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -19,12 +19,12 @@ function Navbar(props) {
   const movieSearchFunc = (event) => {
     event.preventDefault();
     if (!query?.trim()) return;
-      // props?.onSearch(query);
-      const search = {
-        location: window.location.hash,
-        query,
-      };
-      dispatch(setSearch(search));
+    // props?.onSearch(query);
+    const search = {
+      location: window.location.hash,
+      query,
+    };
+    dispatch(setSearch(search));
     setQuery('')
   };
   const handleClick = (event) => {
@@ -34,18 +34,18 @@ function Navbar(props) {
     setAnchorEl(null);
   };
   return (
-      <div className={'container-fluid header'}>
-        <div className={'row p-3'}>
-          {/*Header Left*/}
-          <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-               <MovieFilterSharpIcon  style={{marginTop:"14px", color:"#f4ca16"}}fontSize="large"/>
-               <h3 style={{marginTop:"15px", marginLeft:"10px", color:"#111"}}>WatchAt</h3>
-          </div>
+    <div className={'container-fluid header'}>
+      <div className={'row p-3'}>
+        {/*Header Left*/}
+        <div className="col-12 col-md-3 d-flex justify-content-center">
+          <MovieFilterSharpIcon style={{ marginTop: "14px", color: "#f4ca16" }} fontSize="large" />
+          <h3 style={{ marginTop: "15px", marginLeft: "10px", color: "#111" }}>WatchAt</h3>
+        </div>
         {/* Header Center */}
-        <div className={'col-12 col-md-6 d-flex p-1 '}>
+        <div className={'col-12 col-md-6 d-flex '}>
           <div className="col-4 d-flex justify-content-center header-option" title="Home">
             < Link to="/home" className="nav-link">
-             <dfn title="Home"><HomeIcon fontSize="large" /></dfn> 
+              <dfn title="Home"><HomeIcon fontSize="large" /></dfn>
             </Link>
           </div>
           <div className="col-4 d-flex justify-content-center header-option" title="Watched">
@@ -55,31 +55,31 @@ function Navbar(props) {
           </div>
           <div className="col-4 d-flex justify-content-center header-option" title="Watchlist">
             <Link to="/watchlist" className="nav-link">
-             <dfn title="Watchlist"> <SubscriptionsIcon fontSize="large" /> </dfn> 
+              <dfn title="Watchlist"> <SubscriptionsIcon fontSize="large" /> </dfn>
             </Link>
           </div>
         </div>
-          {/* Start of Header Right*/}
-          <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-          <SearchIcon style={{color:"#111"}} fontSize="large" />
-          <form onSubmit={movieSearchFunc}>
-            <input className={'header_input'} placeholder="Search Movies" value={query} type="text" onChange={(e) => setQuery(e.target.value)} />
+        {/* Start of Header Right*/}
+        <div className="col-12 col-lg-3 d-flex justify-content-center">
+          <SearchIcon className="SearchIcon" style={{ color: "#111" }} fontSize="large" />
+          <form className="col-10 navForm" onSubmit={movieSearchFunc} >
+            <input className={'col-12 header_input'} placeholder="Search Movies" value={query} type="text" onChange={(e) => setQuery(e.target.value)} />
           </form>
           {/* This is for the Drop Down Far Right. */}
-            <Button className="expand-button" aria-controls="simple-menu" aria-haspopup="true"
-                    onClick={handleClick}>
-              <ExpandMoreIcon style={{color:"white"}}/>
-            </Button>
-            <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to ="/login" className="nav-link">Logout</Link></MenuItem>
-            </Menu>
+          <Button className="expand-button" aria-controls="simple-menu" aria-haspopup="true"
+            onClick={handleClick}>
+            <ExpandMoreIcon style={{ color: "white" }} />
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link to="/login" className="nav-link">Logout</Link></MenuItem>
+          </Menu>
         </div>
       </div>
     </div>

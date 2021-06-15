@@ -1,2 +1,9 @@
 .grow { transition: all .3s ease-in-out; }
 .grow:hover { transform: scale(1.1); }
+.cardSize {
+  height: 500px;
+  align-items: center;
+}
+.cardAlignCenter {
+  align-self: center;
+}

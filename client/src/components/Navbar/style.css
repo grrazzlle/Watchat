@@ -64,7 +64,6 @@ dfn:hover::after {
     display: flex;
     align-items: center;
     padding: 0 30px;
-    cursor: pointer;
 }
 
 .header-option:hover {
@@ -87,8 +86,12 @@ dfn:hover::after {
 .expand-button {
     color: white;
 }
-
-
+.SearchIcon {
+    align-self: center
+}
+.navForm {
+    width: initial;
+}
 /*.header_left > img {*/
 /*    height: 40px;*/
 /*}*/
